@@ -61,8 +61,3 @@ python -m pytest --cov=agentic_research
 | `OPENAI_API_KEY` | 없음 | LLM API 키. `/health`는 설정 여부만 노출하고 값은 노출하지 않는다. |
 | `AGENT_NEWS_DIR` | `data/raw/news` | data-pipeline 뉴스·공시 CSV 디렉터리 |
 | `AGENT_CHROMA_DIR` | `artifacts/chroma` | ChromaDB 영속 저장 경로 |
-
-## 면책
-
-교육 목적으로 개발되었으며 실제 투자 조언에 사용할 수 없다. 백테스트 성과는 미래 수익을 보장하지 않는다.
-수집한 뉴스 데이터는 교육 목적으로만 사용하며 재배포를 금지한다.
