@@ -1,0 +1,17 @@
+services:
+  agent-api:
+    build: .
+    ports:
+      - "127.0.0.1:8001:8001"
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      AGENT_NEWS_DIR: /app/data/raw/news
+      AGENT_CHROMA_DIR: /app/artifacts/chroma
+    volumes:
+      - agent-artifacts:/app/artifacts
+      # data-pipeline 산출물(뉴스·공시 CSV)을 읽기 전용으로 연결한다.
+      - ${NEWS_DIR:-./data/raw/news}:/app/data/raw/news:ro
+volumes:
+  agent-artifacts:
