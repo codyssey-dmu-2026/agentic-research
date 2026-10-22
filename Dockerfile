@@ -4,6 +4,7 @@ WORKDIR /app
 COPY requirements.txt pyproject.toml README.md ./
 RUN pip install --no-cache-dir -r requirements.txt
 COPY src ./src
+COPY evaluation ./evaluation
 RUN pip install --no-cache-dir --no-deps . && useradd --create-home agent \
     && mkdir -p /app/artifacts /app/data/raw/news \
     && chown -R agent:agent /app/artifacts /app/data
