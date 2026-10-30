@@ -1,12 +1,13 @@
 """Pick port implementations from settings. The only place that does so."""
 
 from .config import Settings
-from .embeddings import HashEmbedding, OpenAIEmbedding
-from .llm import OpenAILLM, RuleBasedLLM
-from .news import CsvNewsSource
+from .corpus.embeddings import HashEmbedding, OpenAIEmbedding
+from .corpus.news import CsvNewsSource
+from .corpus.vectorstore import ChromaVectorStore
+from .llm.openai import OpenAILLM
+from .llm.rule import RuleBasedLLM
 from .ports import EmbeddingPort, LLMPort, NewsSource, VectorStorePort
 from .risk.provider import StoredRiskTagProvider
-from .vectorstore import ChromaVectorStore
 
 
 class MissingAPIKeyError(RuntimeError):

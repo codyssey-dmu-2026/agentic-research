@@ -2,7 +2,7 @@ from datetime import datetime
 
 import pytest
 
-from agentic_research.news import CsvNewsSource, NewsSchemaError
+from agentic_research.corpus.news import CsvNewsSource, NewsSchemaError
 from conftest import FIXTURE_NEWS
 
 

@@ -14,8 +14,8 @@ from urllib.parse import urlparse
 import pandas as pd
 from pydantic import ValidationError
 
-from .assets import KST, NEW_YORK
-from .contracts import NewsRecord, SourceType, require_aware
+from ..assets import KST, NEW_YORK
+from ..contracts import NewsRecord, SourceType, require_aware
 
 logger = logging.getLogger(__name__)
 

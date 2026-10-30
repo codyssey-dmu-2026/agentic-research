@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 
 from agentic_research.contracts import NewsRecord, RiskAssessment
-from agentic_research.llm import RuleBasedLLM
+from agentic_research.llm.rule import RuleBasedLLM
 from agentic_research.risk.taggers import (
     earnings_shock_tags,
     load_returns,

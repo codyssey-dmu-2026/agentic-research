@@ -6,14 +6,14 @@
 
 | 요구사항 (미션 4-9, 4-10) | 상태 | 근거 |
 | --- | --- | --- |
-| LangGraph 계획-수행-검증 다단계 워크플로우 | 완료 | `workflow.py`, #5 |
-| 금융 뉴스를 ChromaDB에 벡터화, 원문 URL 메타데이터 | 완료 | `ingest.py`, `vectorstore.py`, #4 |
-| Self-Correction (검색 결과가 부적절하면 쿼리 수정 후 재검색) | 구현 완료, **실데이터에서 발동 0회** | `workflow.py:121-168`, README 측정 결과 |
-| 모든 결과에 원문 출처 | 완료 (검증 실패 주장은 삭제) | `verifier.py`, #6 |
-| 에이전트 "현재 생각" 로그 | 완료 (`trace`) | `workflow.py:66`, 대시보드 탭 4에서 표시 |
+| LangGraph 계획-수행-검증 다단계 워크플로우 | 완료 | `agent/workflow.py`, #5 |
+| 금융 뉴스를 ChromaDB에 벡터화, 원문 URL 메타데이터 | 완료 | `ingest.py`, `corpus/vectorstore.py`, #4 |
+| Self-Correction (검색 결과가 부적절하면 쿼리 수정 후 재검색) | 구현 완료, **실데이터에서 발동 0회** | `agent/workflow.py:121-168`, README 측정 결과 |
+| 모든 결과에 원문 출처 | 완료 (검증 실패 주장은 삭제) | `agent/verifier.py`, #6 |
+| 에이전트 "현재 생각" 로그 | 완료 (`trace`) | `agent/workflow.py:66`, 대시보드 탭 4에서 표시 |
 | 위험 이벤트 → RiskTag → RL 관측 또는 리스크 모니터링 | **에이전트 쪽만 완료**, RL·Safe-Guard 쪽 미연동 | `risk/`, #7 (open) |
 | `POST /research`, `GET /health`, Pydantic, Swagger | 완료 | `api.py`, #8 |
-| 요청당 5초 이내 | p95 4.17초, **최대 5.18초** (20건 중 1건 초과) | `bench.py`, README |
+| 요청당 5초 이내 | p95 4.17초, **최대 5.18초** (20건 중 1건 초과) | `agent/bench.py`, README |
 | 결과물 하단 면책 조항 | API 응답에는 있음, **README에는 없음** | `contracts.py` `DISCLAIMER` |
 
 ## 남은 일 (우선순위 순)

@@ -12,8 +12,8 @@ from pathlib import Path
 
 import chromadb
 
-from .contracts import Hit, NewsRecord, merge_hits, require_aware
-from .ports import EmbeddingPort
+from ..contracts import Hit, NewsRecord, merge_hits, require_aware
+from ..ports import EmbeddingPort
 
 _BATCH = 256
 

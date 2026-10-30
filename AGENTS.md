@@ -6,6 +6,6 @@
 - **출처**: 원문 URL로 되짚을 수 없는 주장이나 RiskTag는 만들지 않는다. 인용 검증에 실패한 주장은 고치거나 지우며, 그대로 내보내지 않는다.
 - **RiskTag 스키마**: evaluation-xai의 `RiskTag`를 import해서 쓴다. 필드를 복사하거나 덧붙이지 않는다. `tag_id`는 같은 입력이면 같은 값이 나와야 한다.
 - **구현 교체**: LLM·임베딩·저장소 구현은 `wiring.py`에서만 고른다. 팀 결정 항목은 `config.py`의 설정값이며 기본값은 그곳에만 둔다.
-- **응답 시간**: `/research`는 5초 이내여야 한다. LLM 호출을 늘리는 변경은 `python -m agentic_research.bench`로 측정한 뒤 README 측정 결과를 갱신한다.
+- **응답 시간**: `/research`는 5초 이내여야 한다. LLM 호출을 늘리는 변경은 `python -m agentic_research.agent.bench`로 측정한 뒤 README 측정 결과를 갱신한다.
 - **문서**: 기능이나 연동 상태가 바뀌면 `docs/status.md`를 함께 고친다. 구현되지 않은 연동을 완료로 쓰지 않는다.
 - **검사**: `black --check src tests`, `flake8 src tests`, `pytest`를 통과시킨다.
