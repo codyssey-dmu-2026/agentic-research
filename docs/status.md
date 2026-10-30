@@ -36,8 +36,7 @@ RL 관측 차원이 바뀌면 모델을 전부 재학습해야 하므로, **실�
 
 ### 3. 플랫폼 연동 (현호)
 
-- [ ] 플랫폼 `docker-compose.yml`은 `NEWS_DIR`/`PROCESSED_DIR`를 컨테이너 환경변수로 넣고 `/data/...`에 마운트한다. 이 서비스는 `AGENT_*`만 읽어서 `/app/data/...`를 본다. `AGENT_NEWS_DIR=/data/raw/news`, `AGENT_RETURNS_PATH=/data/processed/returns.parquet`로 맞춘다.
-- [ ] `env_file: ../agentic-research/.env`를 `required: false`로 바꾼다. 아니면 새로 클론했을 때 기동되지 않는다.
+- [x] 플랫폼 compose의 데이터 경로: 플랫폼 #4(2026-10-30)에서 `AGENT_NEWS_DIR` 등 `AGENT_*` 환경변수로 맞췄고, `env_file` 필수 지정도 없어졌다. 이 레포는 커밋 `bdd5b84`로 고정돼 있다.
 - [ ] 게이트웨이 `ResearchRequest`의 기본값 `tickers=["NVDA"]`, `as_of=2024-12-31`을 없앤다. 질문에서 자산을 찾는 기능과 `as_of` 기본값(현재 시각)을 덮어쓴다.
 - [ ] 게이트웨이 타임아웃 4.8초 vs 이 서비스 최대 5.18초. 이 서비스의 최대 응답을 4.5초 아래로 낮추는 것이 우선이다.
 - [ ] 대시보드는 `/health`의 `status`만 보고 "온라인"을 표시한다. 벡터 저장소가 비어 있으면 `ready=false`가 이미 응답에 있으므로 그 값을 쓰게 한다.
