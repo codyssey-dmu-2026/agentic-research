@@ -3,10 +3,10 @@
 from datetime import UTC, datetime
 from time import perf_counter
 
-from .assets import assets_in_text
-from .config import Settings
-from .contracts import Citation, ResearchRequest, ResearchResponse
-from .ports import LLMPort, RiskTagProvider, VectorStorePort
+from ..assets import assets_in_text
+from ..config import Settings
+from ..contracts import Citation, ResearchRequest, ResearchResponse
+from ..ports import LLMPort, RiskTagProvider, VectorStorePort
 from .workflow import INSUFFICIENT_SUMMARY, WorkflowConfig, build_workflow
 
 

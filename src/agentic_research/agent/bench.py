@@ -1,6 +1,6 @@
 """Measure `POST /research` latency against the 5-second requirement (#8).
 
-    python -m agentic_research.bench --url http://127.0.0.1:8001 --n 20
+    python -m agentic_research.agent.bench --url http://127.0.0.1:8001 --n 20
 
 Sends the fixed questions round-robin, one request at a time, and reports
 p50/p95/max of the end-to-end HTTP time.
