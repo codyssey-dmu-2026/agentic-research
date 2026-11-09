@@ -7,8 +7,8 @@ document that was actually retrieved, and (3) the cited text supports it.
 from collections.abc import Sequence
 from dataclasses import dataclass, field
 
-from .contracts import Claim, Draft, Hit
-from .ports import LLMPort
+from ..contracts import Claim, Draft, Hit
+from ..ports import LLMPort
 
 
 @dataclass(frozen=True)

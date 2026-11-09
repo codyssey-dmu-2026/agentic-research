@@ -7,7 +7,7 @@ from collections.abc import Sequence
 import numpy as np
 from pydantic import SecretStr
 
-from .contracts import ProviderError
+from ..contracts import ProviderError
 
 _TOKEN = re.compile(r"[0-9a-z가-힣]+")
 

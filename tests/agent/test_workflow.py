@@ -1,8 +1,8 @@
 from datetime import datetime
 
+from agentic_research.agent.service import ResearchService
 from agentic_research.contracts import Claim, Draft, ResearchRequest
-from agentic_research.llm import RuleBasedLLM
-from agentic_research.research import ResearchService
+from agentic_research.llm.rule import RuleBasedLLM
 from agentic_research.risk.provider import StoredRiskTagProvider
 from conftest import make_settings
 

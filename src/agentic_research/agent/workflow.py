@@ -15,10 +15,10 @@ from typing import Annotated, Any, TypedDict
 
 from langgraph.graph import END, START, StateGraph
 
-from .config import Settings
-from .contracts import Draft, Hit, TraceEvent, merge_hits
-from .llm import RuleBasedLLM
-from .ports import LLMPort, VectorStorePort
+from ..config import Settings
+from ..contracts import Draft, Hit, TraceEvent, merge_hits
+from ..llm.rule import RuleBasedLLM
+from ..ports import LLMPort, VectorStorePort
 from .verifier import Verification, verify
 
 

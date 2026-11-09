@@ -1,6 +1,6 @@
 """Measure what Self-Correction and citation verification change (#6).
 
-    python -m agentic_research.evaluate [--questions evaluation/questions.json]
+    python -m agentic_research.agent.evaluate [--questions evaluation/questions.json]
 
 Runs the fixed question set three times against the ingested store:
 * baseline: no query rewrite, no draft revision
@@ -15,10 +15,10 @@ import json
 from pathlib import Path
 from statistics import fmean, median
 
-from .config import Settings, get_settings
-from .contracts import ResearchRequest, ResearchResponse
-from .research import ResearchService
-from .wiring import build_llm, build_risk_provider, build_vector_store
+from ..config import Settings, get_settings
+from ..contracts import ResearchRequest, ResearchResponse
+from ..wiring import build_llm, build_risk_provider, build_vector_store
+from .service import ResearchService
 
 
 def _ratio(part: int, whole: int) -> float:

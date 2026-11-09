@@ -6,9 +6,9 @@ from fastapi import Depends, FastAPI, HTTPException
 from pydantic import BaseModel
 
 from . import DISCLAIMER, __version__
+from .agent.service import ResearchService
 from .config import Settings, get_settings
 from .contracts import ProviderError, ResearchRequest, ResearchResponse
-from .research import ResearchService
 from .wiring import (
     MissingAPIKeyError,
     build_llm,

@@ -45,21 +45,14 @@ flowchart LR
 
 ```
 src/agentic_research/
-├── contracts.py   # NewsRecord·Hit·Draft·TraceEvent·요청/응답, RiskTag 재수출
-├── ports.py       # NewsSource·EmbeddingPort·VectorStorePort·LLMPort·RiskTagProvider
+├── contracts.py · ports.py · config.py · assets.py   # 공용: 데이터 모양, 인터페이스, 설정, 자산
 ├── wiring.py      # .env로 구현 선택 (유일한 선택 지점)
-├── news.py        # data-pipeline CSV 로더, 가용 시점(available_at) 정책
-├── vectorstore.py # ChromaDB, as_of·자산 필터
-├── embeddings.py  # HashEmbedding(오프라인) · OpenAIEmbedding
-├── llm.py         # RuleBasedLLM(키 없이 동작) · OpenAILLM(구조화 출력)
-├── workflow.py    # LangGraph 그래프와 Self-Correction 루프
-├── verifier.py    # 인용 검증
-├── research.py    # 요청 1건 실행 → 응답
 ├── api.py         # FastAPI: GET /health, POST /research
-├── risk/          # taxonomy · taggers · provider · `python -m agentic_research.risk`
 ├── ingest.py      # `python -m agentic_research.ingest`
-├── evaluate.py    # Self-Correction 전후 인용 품질
-└── bench.py       # /research 지연 시간 (5초 기준)
+├── corpus/        # news(CSV 로더·available_at) · embeddings · vectorstore(ChromaDB, as_of 필터)
+├── llm/           # rule(키 없이 동작) · openai(구조화 출력)
+├── agent/         # workflow(LangGraph) · verifier(인용 검증) · service(요청→응답) · evaluate · bench
+└── risk/          # taxonomy · taggers · provider · `python -m agentic_research.risk`
 ```
 
 ## 실행
@@ -158,10 +151,10 @@ vec = provider.vector(datetime.fromisoformat("2024-08-06T09:00:00+09:00"), order
 조건: data-pipeline `0bbd15f`를 직접 실행해 얻은 데이터(SEC 346건, 한국경제 RSS 3건, DART는 API 키가 없어 0건),
 `gpt-4o-mini` + `text-embedding-3-small`, 기본 설정. 질문 10개는 `evaluation/questions.json`.
 
-**지연 시간** (`python -m agentic_research.bench --n 20`): p50 3.42초, p95 4.17초, 최대 5.18초(20건 중 1건 5초 초과).
+**지연 시간** (`python -m agentic_research.agent.bench --n 20`): p50 3.42초, p95 4.17초, 최대 5.18초(20건 중 1건 5초 초과).
 LLM 계획(+약 1초)과 초안 재작성(+약 3초)을 켜면 5초를 넘기므로 기본값은 꺼져 있다(Notion D13).
 
-**인용 품질** (`python -m agentic_research.evaluate`):
+**인용 품질** (`python -m agentic_research.agent.evaluate`):
 
 | 지표 | baseline | 검색 재작성 | 검색 재작성 + 초안 재작성 1회 |
 | --- | --- | --- | --- |

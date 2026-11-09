@@ -4,8 +4,8 @@ from datetime import datetime, timedelta
 
 import pytest
 
-from agentic_research.embeddings import HashEmbedding
-from agentic_research.vectorstore import ChromaVectorStore
+from agentic_research.corpus.embeddings import HashEmbedding
+from agentic_research.corpus.vectorstore import ChromaVectorStore
 
 AS_OF_CASES = [
     "2024-09-01T00:00:00+09:00",
